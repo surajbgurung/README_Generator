@@ -3,61 +3,6 @@ const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 
-// const questions = [
-// 	// {
-// 	// 	message: "Enter your GitHub username:",
-// 	// 	name: "username",
-// 	// 	type:"input"
-// 	// },
-// 	{
-// 		message:"What is a badge name? ",
-// 		name: "badge",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What is the project title? ",
-// 		name: "project",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What is the description? ",
-// 		name: "description",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What are the table of contents? ",
-// 		name: "table",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What is the installation? ",
-// 		name: "install",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What is the usage? ",
-// 		name: "usage",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What is the license number? ",
-// 		name: "license",
-// 		type:"input"
-// 	},
-// 	,
-// 	{
-// 		message:"Who is contributing? ",
-// 		name: "contribute",
-// 		type:"input"
-// 	},
-// 	{
-// 		message:"What are the required tests? ",
-// 		name: "test",
-// 		type:"input"
-// 	}
-// ];
-
-
 inquirer
 	.prompt({
 			message: "Enter your GitHub username:",
@@ -85,9 +30,9 @@ inquirer
 			' \n \n' +
 			avatar + '\n \n' +
 			// Usermame
-			'Your usrname is: ' + username + '\n \n' +
+			'User Name: ' + username + '\n \n' +
 			// Email
-			'Your mail is: ' + email + '\n';
+			'Email: ' + email + '\n';
 
 			fs.writeFile("README.md", document, function (err) {
 				if (err) {
@@ -169,7 +114,7 @@ inquirer
 				`\n\n![bage image](https://img.shields.io/static/v1?label=Version&message=${answers.badge}&color=<COLOR>) \n`+
 
 				// Project Title
-				`# ${answers.project} \n \n`+
+				`## Project Title:\n\n # ${answers.project} \n \n`+
 
 				// Project Description
                 `## Description: \n\n ${answers.description} \n \n`+
@@ -190,11 +135,6 @@ inquirer
                 //questions
                 `## Questions \n \n ${answers.questions}`
                 
-                
-                
-
-
-
 				var document =  body2;
 				fs.appendFile("README.md", document, function (err) {
 					if (err) {
